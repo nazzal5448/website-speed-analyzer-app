@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;family=Geist:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary-fixed-dim": "#cfbcff",
+            "on-tertiary-fixed": "#241a00",
+            "inverse-primary": "#6750a4",
+            "on-primary": "#381e72",
+            "error": "#ffb4ab",
+            "on-tertiary-container": "#503d00",
+            "on-error": "#690005",
+            "on-surface-variant": "#cbc4d2",
+            "background": "#141218",
+            "surface-bright": "#3b383e",
+            "tertiary-fixed": "#ffdf93",
+            "error-container": "#93000a",
+            "on-background": "#e6e0e9",
+            "on-primary-fixed": "#22005d",
+            "primary-fixed": "#e9ddff",
+            "surface-container": "#211f24",
+            "primary-container": "#6750a4",
+            "outline-variant": "#494551",
+            "primary": "#cfbcff",
+            "on-secondary-container": "#bfb2da",
+            "inverse-surface": "#e6e0e9",
+            "surface-container-highest": "#36343a",
+            "outline": "#948e9c",
+            "secondary-fixed": "#e9ddff",
+            "on-secondary-fixed": "#1f1635",
+            "on-error-container": "#ffdad6",
+            "on-secondary-fixed-variant": "#4b4263",
+            "surface-container-low": "#1d1b20",
+            "on-secondary": "#342b4b",
+            "secondary-container": "#4d4465",
+            "secondary": "#cdc0e9",
+            "surface-container-lowest": "#0f0d13",
+            "on-tertiary": "#3e2e00",
+            "secondary-fixed-dim": "#cdc0e9",
+            "surface": "#141218",
+            "tertiary": "#e7c365",
+            "surface-tint": "#cfbcff",
+            "surface-variant": "#36343a",
+            "on-primary-container": "#e0d2ff",
+            "on-tertiary-fixed-variant": "#594400",
+            "on-surface": "#e6e0e9",
+            "tertiary-container": "#c9a74d",
+            "surface-container-high": "#2b292f",
+            "surface-dim": "#141218",
+            "on-primary-fixed-variant": "#4f378a",
+            "tertiary-fixed-dim": "#e7c365",
+            "inverse-on-surface": "#322f35"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-mobile": "20px",
+            "stack-sm": "8px",
+            "stack-xl": "64px",
+            "container-max": "1280px",
+            "margin-desktop": "40px",
+            "stack-lg": "32px",
+            "stack-xs": "4px",
+            "gutter": "24px",
+            "stack-md": "16px"
+          },
+          "fontFamily": {
+            "label-mono": ["JetBrains Mono"],
+            "label-sm": ["Inter"],
+            "headline-md": ["Geist"],
+            "body-md": ["Inter"],
+            "display-xl": ["Geist"],
+            "headline-lg": ["Geist"],
+            "display-xl-mobile": ["Geist"],
+            "body-lg": ["Inter"]
+          },
+          "fontSize": {
+            "label-mono": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+            "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+            "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+            "display-xl": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+            "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+            "display-xl-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .glass-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-image: linear-gradient(to bottom right, rgba(255,255,255,0.1), rgba(255,255,255,0.02)) 1;
+    }
+    .neon-glow-green {
+      box-shadow: 0 0 20px rgba(74, 222, 128, 0.3);
+    }
+    .neon-glow-primary {
+      box-shadow: 0 0 20px rgba(207, 188, 255, 0.4);
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="bg-surface/80 backdrop-blur-xl dark:bg-surface/80 docked full-width top-0 sticky z-50 border-b border-white/10 dark:border-white/5 flex justify-between items-center px-margin-mobile h-16 w-full">
+<div class="flex items-center gap-stack-sm">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim" data-icon="speed">speed</span>
+<h1 class="text-headline-md font-headline-md font-bold tracking-tight text-on-surface dark:text-on-surface">SpeedMetrics</h1>
+</div>
+<div class="flex items-center gap-stack-md">
+<div class="hidden md:flex gap-stack-lg items-center mr-8">
+<a class="text-primary font-bold transition-colors" href="#">Home</a>
+<a class="text-on-surface-variant hover:bg-white/5 transition-colors p-2 rounded" href="#">History</a>
+<a class="text-on-surface-variant hover:bg-white/5 transition-colors p-2 rounded" href="#">Compare</a>
+</div>
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim cursor-pointer" data-icon="account_circle">account_circle</span>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-stack-lg">
+<!-- Hero Section with Central Gauge -->
+<section class="flex flex-col items-center justify-center text-center mb-stack-xl">
+<div class="mb-stack-md">
+<h2 class="text-display-xl-mobile md:text-display-xl font-display-xl">Cyfrow Website Speed Analyzer</h2>
+<p class="text-on-surface-variant text-body-lg max-w-2xl mx-auto">Comprehensive performance audit for <span class="text-primary font-label-mono">cyfrow.io</span></p>
+</div>
+<!-- Device Toggle -->
+<div class="bg-surface-container-low p-1 rounded-full flex gap-1 mb-stack-lg border border-white/5">
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="smartphone">smartphone</span>
+          Mobile
+        </button>
+<button class="text-on-surface-variant px-6 py-2 rounded-full font-label-sm flex items-center gap-2 hover:bg-white/5 transition-all">
+<span class="material-symbols-outlined text-[18px]" data-icon="desktop_windows">desktop_windows</span>
+          Desktop
+        </button>
+</div>
+<!-- Main Score Gauge -->
+<div class="relative w-64 h-64 md:w-80 md:h-80 flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90">
+<circle cx="50%" cy="50%" fill="none" r="45%" stroke="rgba(255,255,255,0.05)" stroke-width="24"></circle>
+<circle class="drop-shadow-[0_0_15px_rgba(74,222,128,0.5)]" cx="50%" cy="50%" fill="none" r="45%" stroke="#4ade80" stroke-dasharray="282.7%" stroke-dashoffset="5.6%" stroke-linecap="round" stroke-width="24"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-display-xl font-display-xl text-[#4ade80]">98</span>
+<span class="text-label-mono text-[#4ade80] uppercase tracking-widest">Performance</span>
+</div>
+</div>
+</section>
+<!-- Bento Grid Scores -->
+<section class="grid grid-cols-1 md:grid-cols-4 gap-gutter mb-stack-xl">
+<div class="glass-card p-stack-md rounded-xl flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full border-4 border-[#4ade80] flex items-center justify-center mb-stack-sm text-headline-md font-bold text-[#4ade80]">98</div>
+<h3 class="text-label-sm text-on-surface-variant">Performance</h3>
+</div>
+<div class="glass-card p-stack-md rounded-xl flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full border-4 border-[#4ade80] flex items-center justify-center mb-stack-sm text-headline-md font-bold text-[#4ade80]">100</div>
+<h3 class="text-label-sm text-on-surface-variant">SEO</h3>
+</div>
+<div class="glass-card p-stack-md rounded-xl flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full border-4 border-[#fbbf24] flex items-center justify-center mb-stack-sm text-headline-md font-bold text-[#fbbf24]">92</div>
+<h3 class="text-label-sm text-on-surface-variant">Accessibility</h3>
+</div>
+<div class="glass-card p-stack-md rounded-xl flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full border-4 border-[#4ade80] flex items-center justify-center mb-stack-sm text-headline-md font-bold text-[#4ade80]">95</div>
+<h3 class="text-label-sm text-on-surface-variant">Best Practices</h3>
+</div>
+</section>
+<!-- Core Web Vitals -->
+<section class="mb-stack-xl">
+<div class="flex items-center justify-between mb-stack-md">
+<h3 class="text-headline-lg font-headline-lg">Core Web Vitals Assessment</h3>
+<span class="bg-[#4ade80]/20 text-[#4ade80] px-3 py-1 rounded-full text-label-sm">Passed</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-stack-md">
+<!-- FCP -->
+<div class="glass-card p-stack-md rounded-xl">
+<div class="flex justify-between items-start mb-stack-sm">
+<span class="text-label-sm text-on-surface-variant">FCP</span>
+<div class="w-2 h-2 rounded-full bg-[#4ade80] shadow-[0_0_8px_rgba(74,222,128,0.8)]"></div>
+</div>
+<p class="text-headline-md font-bold text-on-surface">0.8s</p>
+<p class="text-label-sm text-on-surface-variant">First Contentful Paint</p>
+</div>
+<!-- LCP -->
+<div class="glass-card p-stack-md rounded-xl">
+<div class="flex justify-between items-start mb-stack-sm">
+<span class="text-label-sm text-on-surface-variant">LCP</span>
+<div class="w-2 h-2 rounded-full bg-[#4ade80] shadow-[0_0_8px_rgba(74,222,128,0.8)]"></div>
+</div>
+<p class="text-headline-md font-bold text-on-surface">1.2s</p>
+<p class="text-label-sm text-on-surface-variant">Largest Contentful Paint</p>
+</div>
+<!-- CLS -->
+<div class="glass-card p-stack-md rounded-xl">
+<div class="flex justify-between items-start mb-stack-sm">
+<span class="text-label-sm text-on-surface-variant">CLS</span>
+<div class="w-2 h-2 rounded-full bg-[#4ade80] shadow-[0_0_8px_rgba(74,222,128,0.8)]"></div>
+</div>
+<p class="text-headline-md font-bold text-on-surface">0.01</p>
+<p class="text-label-sm text-on-surface-variant">Cumulative Layout Shift</p>
+</div>
+<!-- TBT -->
+<div class="glass-card p-stack-md rounded-xl">
+<div class="flex justify-between items-start mb-stack-sm">
+<span class="text-label-sm text-on-surface-variant">TBT</span>
+<div class="w-2 h-2 rounded-full bg-[#fbbf24] shadow-[0_0_8px_rgba(251,191,36,0.8)]"></div>
+</div>
+<p class="text-headline-md font-bold text-on-surface">150ms</p>
+<p class="text-label-sm text-on-surface-variant">Total Blocking Time</p>
+</div>
+<!-- Speed Index -->
+<div class="glass-card p-stack-md rounded-xl">
+<div class="flex justify-between items-start mb-stack-sm">
+<span class="text-label-sm text-on-surface-variant">Speed Index</span>
+<div class="w-2 h-2 rounded-full bg-[#4ade80] shadow-[0_0_8px_rgba(74,222,128,0.8)]"></div>
+</div>
+<p class="text-headline-md font-bold text-on-surface">1.1s</p>
+<p class="text-label-sm text-on-surface-variant">Overall Visual Progress</p>
+</div>
+</div>
+</section>
+<!-- Optimization Opportunities -->
+<section>
+<h3 class="text-headline-lg font-headline-lg mb-stack-md">Optimization Opportunities</h3>
+<div class="space-y-stack-md">
+<!-- Card 1 -->
+<div class="glass-card rounded-xl overflow-hidden">
+<div class="p-stack-md flex items-center justify-between cursor-pointer hover:bg-white/5 transition-colors">
+<div class="flex items-center gap-stack-md">
+<span class="material-symbols-outlined text-error" data-icon="image">image</span>
+<div>
+<h4 class="text-body-lg font-bold">Properly size images</h4>
+<p class="text-label-sm text-on-surface-variant">Serve images that are appropriately-sized to save cellular data.</p>
+</div>
+</div>
+<div class="flex items-center gap-stack-md">
+<span class="text-label-mono text-error font-bold">Potential Savings: 1.2s</span>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="glass-card rounded-xl overflow-hidden border-l-4 border-l-primary">
+<div class="p-stack-md flex items-center justify-between cursor-pointer bg-white/5">
+<div class="flex items-center gap-stack-md">
+<span class="material-symbols-outlined text-primary" data-icon="javascript">javascript</span>
+<div>
+<h4 class="text-body-lg font-bold">Reduce unused JavaScript</h4>
+<p class="text-label-sm text-on-surface-variant">Remove dead code to reduce bytes consumed by network activity.</p>
+</div>
+</div>
+<div class="flex items-center gap-stack-md">
+<span class="text-label-mono text-primary font-bold">Potential Savings: 0.8s</span>
+<span class="material-symbols-outlined text-on-surface-variant rotate-180" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<div class="px-stack-md pb-stack-md text-on-surface-variant text-body-md border-t border-white/5 pt-stack-sm bg-white/5">
+<p class="mb-stack-sm">The following scripts have more than 50% unused code. Consider code-splitting or removing them:</p>
+<ul class="font-label-mono text-sm space-y-1">
+<li class="flex justify-between border-b border-white/5 pb-1">
+<span>.../vendors-main.js</span>
+<span class="text-error">642 KB unused</span>
+</li>
+<li class="flex justify-between border-b border-white/5 pb-1">
+<span>.../analytics.js</span>
+<span class="text-error">120 KB unused</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="glass-card rounded-xl overflow-hidden">
+<div class="p-stack-md flex items-center justify-between cursor-pointer hover:bg-white/5 transition-colors">
+<div class="flex items-center gap-stack-md">
+<span class="material-symbols-outlined text-tertiary" data-icon="timer">timer</span>
+<div>
+<h4 class="text-body-lg font-bold">Reduce initial server response time</h4>
+<p class="text-label-sm text-on-surface-variant">Keep the server response time for the main document short.</p>
+</div>
+</div>
+<div class="flex items-center gap-stack-md">
+<span class="text-label-mono text-tertiary font-bold">Potential Savings: 0.3s</span>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- FAB -->
+<button class="fixed bottom-24 right-6 md:right-12 bg-primary text-on-primary p-4 rounded-full shadow-lg neon-glow-primary active:scale-95 transition-all flex items-center gap-2 z-40">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+<span class="hidden md:block font-bold">Analyze Another Website</span>
+</button>
+<!-- BottomNavBar -->
+<nav class="bg-surface/90 backdrop-blur-2xl dark:bg-surface/90 docked full-width bottom-0 fixed z-50 border-t border-white/10 dark:border-white/5 shadow-[0_-4px_20px_rgba(0,0,0,0.5)] flex justify-around items-center h-20 w-full px-4 pb-safe">
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim drop-shadow-[0_0_8px_rgba(207,188,255,0.6)] group" href="#">
+<span class="material-symbols-outlined scale-90 transition-transform duration-150" data-icon="home" data-weight="fill" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-label-sm font-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant/60 hover:text-primary-fixed transition-all group" href="#">
+<span class="material-symbols-outlined group-active:scale-90 transition-transform duration-150" data-icon="history">history</span>
+<span class="text-label-sm font-label-sm">History</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant/60 hover:text-primary-fixed transition-all group" href="#">
+<span class="material-symbols-outlined group-active:scale-90 transition-transform duration-150" data-icon="compare_arrows">compare_arrows</span>
+<span class="text-label-sm font-label-sm">Compare</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant/60 hover:text-primary-fixed transition-all group" href="#">
+<span class="material-symbols-outlined group-active:scale-90 transition-transform duration-150" data-icon="info">info</span>
+<span class="text-label-sm font-label-sm">About</span>
+</a>
+</nav>
+</body></html>

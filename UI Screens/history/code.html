@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SpeedMetrics - History</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;family=Geist:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed-dim": "#cfbcff",
+                    "on-tertiary-fixed": "#241a00",
+                    "inverse-primary": "#6750a4",
+                    "on-primary": "#381e72",
+                    "error": "#ffb4ab",
+                    "on-tertiary-container": "#503d00",
+                    "on-error": "#690005",
+                    "on-surface-variant": "#cbc4d2",
+                    "background": "#141218",
+                    "surface-bright": "#3b383e",
+                    "tertiary-fixed": "#ffdf93",
+                    "error-container": "#93000a",
+                    "on-background": "#e6e0e9",
+                    "on-primary-fixed": "#22005d",
+                    "primary-fixed": "#e9ddff",
+                    "surface-container": "#211f24",
+                    "primary-container": "#6750a4",
+                    "outline-variant": "#494551",
+                    "primary": "#cfbcff",
+                    "on-secondary-container": "#bfb2da",
+                    "inverse-surface": "#e6e0e9",
+                    "surface-container-highest": "#36343a",
+                    "outline": "#948e9c",
+                    "secondary-fixed": "#e9ddff",
+                    "on-secondary-fixed": "#1f1635",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary-fixed-variant": "#4b4263",
+                    "surface-container-low": "#1d1b20",
+                    "on-secondary": "#342b4b",
+                    "secondary-container": "#4d4465",
+                    "secondary": "#cdc0e9",
+                    "surface-container-lowest": "#0f0d13",
+                    "on-tertiary": "#3e2e00",
+                    "secondary-fixed-dim": "#cdc0e9",
+                    "surface": "#141218",
+                    "tertiary": "#e7c365",
+                    "surface-tint": "#cfbcff",
+                    "surface-variant": "#36343a",
+                    "on-primary-container": "#e0d2ff",
+                    "on-tertiary-fixed-variant": "#594400",
+                    "on-surface": "#e6e0e9",
+                    "tertiary-container": "#c9a74d",
+                    "surface-container-high": "#2b292f",
+                    "surface-dim": "#141218",
+                    "on-primary-fixed-variant": "#4f378a",
+                    "tertiary-fixed-dim": "#e7c365",
+                    "inverse-on-surface": "#322f35"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "20px",
+                    "stack-sm": "8px",
+                    "stack-xl": "64px",
+                    "container-max": "1280px",
+                    "margin-desktop": "40px",
+                    "stack-lg": "32px",
+                    "stack-xs": "4px",
+                    "gutter": "24px",
+                    "stack-md": "16px"
+            },
+            "fontFamily": {
+                    "label-mono": ["JetBrains Mono"],
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Geist"],
+                    "body-md": ["Inter"],
+                    "display-xl": ["Geist"],
+                    "headline-lg": ["Geist"],
+                    "display-xl-mobile": ["Geist"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "label-mono": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-xl": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "display-xl-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #000000;
+            color: #e6e0e9;
+        }
+        .glass-card {
+            background: rgba(18, 18, 18, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.02) 100%);
+            pointer-events: none;
+        }
+        .glow-indicator {
+            box-shadow: 0 0 15px rgba(207, 188, 255, 0.3);
+        }
+        .performance-ring {
+            stroke-dasharray: 100;
+            stroke-linecap: round;
+        }
+        .neon-blue-gradient {
+            background: linear-gradient(90deg, #6750a4, #cfbcff);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen flex flex-col font-body-md text-body-md selection:bg-primary/30">
+<!-- Top AppBar Shell -->
+<header class="bg-surface/80 backdrop-blur-xl dark:bg-surface/80 docked full-width top-0 sticky z-50 border-b border-white/10 dark:border-white/5 flex justify-between items-center px-margin-mobile h-16 w-full">
+<div class="flex items-center gap-stack-sm">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim" data-icon="speed">speed</span>
+<h1 class="text-headline-md font-headline-md font-bold tracking-tight text-on-surface dark:text-on-surface">SpeedMetrics</h1>
+</div>
+<div class="flex items-center gap-stack-md">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/5 transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="search">search</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/5 transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 max-w-container-max mx-auto w-full px-margin-mobile py-stack-lg">
+<!-- History Header Section -->
+<section class="mb-stack-lg flex justify-between items-end">
+<div>
+<p class="font-label-mono text-label-mono text-primary uppercase tracking-widest mb-stack-xs">Analytics Log</p>
+<h2 class="font-headline-lg text-headline-lg">Scan History</h2>
+</div>
+<div class="hidden md:flex gap-stack-md">
+<button class="px-stack-md py-stack-sm border border-white/10 rounded-lg font-label-sm text-label-sm text-on-surface-variant hover:bg-white/5 transition-all">
+                    Export CSV
+                </button>
+<button class="px-stack-md py-stack-sm border border-white/10 rounded-lg font-label-sm text-label-sm text-on-surface-variant hover:bg-white/5 transition-all">
+                    Clear All
+                </button>
+</div>
+</section>
+<!-- Search & Filter Bar (Desktop) -->
+<div class="mb-stack-lg glass-card rounded-xl p-stack-sm flex items-center gap-stack-md">
+<div class="flex-1 flex items-center bg-surface-container-low rounded-lg px-stack-md py-stack-xs border border-white/5 focus-within:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]" data-icon="filter_list">filter_list</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md w-full placeholder:text-on-surface-variant/40" placeholder="Filter by URL or status..." type="text"/>
+</div>
+<div class="flex items-center gap-stack-sm pr-stack-sm">
+<span class="text-label-sm font-label-sm text-on-surface-variant hidden sm:inline">Sort: Latest</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+</div>
+</div>
+<!-- Vertical List of Previous Scans -->
+<div class="flex flex-col gap-stack-md">
+<!-- History Item 1: High Performance -->
+<div class="group relative">
+<!-- Action Layer (Underneath for Swipe Concept) -->
+<div class="absolute inset-0 flex justify-between items-center px-stack-lg rounded-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+<span class="material-symbols-outlined text-error" data-icon="delete">delete</span>
+<span class="material-symbols-outlined text-primary" data-icon="share">share</span>
+</div>
+<!-- Main Card Content -->
+<div class="glass-card rounded-xl p-stack-md flex flex-col md:flex-row items-center gap-stack-md hover:translate-x-1 transition-transform cursor-pointer">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center shrink-0 border border-white/10">
+<img alt="" class="w-8 h-8 rounded" data-alt="A clean minimalist favicon of a modern technology website, specifically a black triangle logo on a white square, representing web development and performance tools. The lighting is crisp and high-contrast, fitting a dark professional developer environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfWxi5RZ3d7Heeo8tI58DlmF4exStF_EbEn8Gy0E1iojIo36T0prGsLIyOPSgNaAvCeh_TAfX8Ika-evKQDCqTyOuiLeshKDOyXQsOJfK3fgswIjsEZXCjXdiMZic1g48vijKINQYIrMXN1Zf9bvhil8N-c804mm49omkKuf75qjW0k5Hlp55hhjDphlOrDbQWEKfV3WSHRA-dLdWqGJoVm6vg2sBSGxdru_hVdxMfzzfvYpeJBzNDnjBRk8-3dAXNeYvvtccBdkko"/>
+</div>
+<div class="flex-1 text-center md:text-left overflow-hidden">
+<h3 class="font-headline-md text-body-lg font-bold truncate">vercel.com/dashboard</h3>
+<div class="flex items-center justify-center md:justify-start gap-stack-sm text-on-surface-variant text-label-sm font-label-sm mt-stack-xs">
+<span class="material-symbols-outlined text-[16px]" data-icon="calendar_today">calendar_today</span>
+<span>Oct 24, 2023</span>
+<span class="mx-1 opacity-20">•</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="schedule">schedule</span>
+<span>14:45 PM</span>
+</div>
+</div>
+<div class="flex items-center gap-stack-lg shrink-0">
+<!-- Score Badge -->
+<div class="flex items-center gap-stack-sm">
+<div class="relative w-12 h-12 flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-white/10" cx="24" cy="24" fill="transparent" r="20" stroke="currentColor" stroke-width="4"></circle>
+<circle class="text-primary performance-ring drop-shadow-[0_0_8px_rgba(207,188,255,0.4)]" cx="24" cy="24" fill="transparent" r="20" stroke="currentColor" stroke-dasharray="125.6" stroke-dashoffset="12.5" stroke-width="4"></circle>
+</svg>
+<span class="absolute text-label-sm font-label-mono text-primary">98</span>
+</div>
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Score</span>
+<span class="text-primary text-label-sm font-bold uppercase tracking-wider">Fast</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant opacity-40 md:opacity-100" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- History Item 2: Average Performance -->
+<div class="group relative">
+<div class="glass-card rounded-xl p-stack-md flex flex-col md:flex-row items-center gap-stack-md hover:translate-x-1 transition-transform cursor-pointer">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center shrink-0 border border-white/10">
+<img alt="" class="w-8 h-8 rounded" data-alt="A small iconic brand favicon of a major retail platform, showcasing a dark background with a yellow curved arrow. The image is rendered with a slight glassmorphism blur around its edges to integrate it into the tech-focused UI dashboard aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7N3urWYTY9MVg1oSX0Hj_T5WodCfL5Bh11nVMpfkEu9gEo3wCS8bDTJYM77OCd66qbCn7iHtcT-x9SVtHMUnPu16Y22lCMxCjpIygmrG6Be_w145oq6psN4hFidFe5g1jujP_jtb8gu_VKfhmGRRUzinP-wexQP6bsmx18jNSmds-tU6op0If53lL0Z6ER719qbsjZFII2NisnxUboTbWCRz5E-bv5ZB-m4LMrox9xJQqldSg8vCwtvXCRZF1lQc-X3Bo_bVYpYlH"/>
+</div>
+<div class="flex-1 text-center md:text-left overflow-hidden">
+<h3 class="font-headline-md text-body-lg font-bold truncate">amazon.com/dp/B08N5K16HX</h3>
+<div class="flex items-center justify-center md:justify-start gap-stack-sm text-on-surface-variant text-label-sm font-label-sm mt-stack-xs">
+<span class="material-symbols-outlined text-[16px]" data-icon="calendar_today">calendar_today</span>
+<span>Oct 23, 2023</span>
+<span class="mx-1 opacity-20">•</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="schedule">schedule</span>
+<span>09:12 AM</span>
+</div>
+</div>
+<div class="flex items-center gap-stack-lg shrink-0">
+<div class="flex items-center gap-stack-sm">
+<div class="relative w-12 h-12 flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-white/10" cx="24" cy="24" fill="transparent" r="20" stroke="currentColor" stroke-width="4"></circle>
+<circle class="text-tertiary performance-ring" cx="24" cy="24" fill="transparent" r="20" stroke="currentColor" stroke-dasharray="125.6" stroke-dashoffset="40" stroke-width="4"></circle>
+</svg>
+<span class="absolute text-label-sm font-label-mono text-tertiary">74</span>
+</div>
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Score</span>
+<span class="text-tertiary text-label-sm font-bold uppercase tracking-wider">Avg</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant opacity-40 md:opacity-100" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- History Item 3: Poor Performance -->
+<div class="group relative">
+<div class="glass-card rounded-xl p-stack-md flex flex-col md:flex-row items-center gap-stack-md hover:translate-x-1 transition-transform cursor-pointer">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center shrink-0 border border-white/10">
+<img alt="" class="w-8 h-8 rounded" data-alt="A circular blue favicon for a content management system, rendered with clean lines on a dark textured background. The lighting is soft and even, highlighting the technical precision and data-centric mood of the speed analyzer application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzDoRZW_XjOSXwtGwZdG7TQkCRXBxckNVnZLNSYClRiw8qr3hcwNqKvaXQsa76TKMtRX9fcGfDnKtcGcoLcaRjlI_-42Q0vMDQMX0JPlKlHXyFoDwz4kucqF3Hvj4Cqt8VZs2MbLfqzVZ2gMK_8LHxaK9rYd25c8OCabWyp67avDBkQYhc3ucdL5D5Uro4lOsABr6XMwVUB5LW0YUrBRdHX78X05aCoh1_Qg4vmJRVVybgpeg5YCBPt5F0Uv9eSCJ6IEZF_xutxrHg"/>
+</div>
+<div class="flex-1 text-center md:text-left overflow-hidden">
+<h3 class="font-headline-md text-body-lg font-bold truncate">wordpress.org/plugins/performance</h3>
+<div class="flex items-center justify-center md:justify-start gap-stack-sm text-on-surface-variant text-label-sm font-label-sm mt-stack-xs">
+<span class="material-symbols-outlined text-[16px]" data-icon="calendar_today">calendar_today</span>
+<span>Oct 20, 2023</span>
+<span class="mx-1 opacity-20">•</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="schedule">schedule</span>
+<span>21:30 PM</span>
+</div>
+</div>
+<div class="flex items-center gap-stack-lg shrink-0">
+<div class="flex items-center gap-stack-sm">
+<div class="relative w-12 h-12 flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-white/10" cx="24" cy="24" fill="transparent" r="20" stroke="currentColor" stroke-width="4"></circle>
+<circle class="text-error performance-ring" cx="24" cy="24" fill="transparent" r="20" stroke="currentColor" stroke-dasharray="125.6" stroke-dashoffset="85" stroke-width="4"></circle>
+</svg>
+<span class="absolute text-label-sm font-label-mono text-error">32</span>
+</div>
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Score</span>
+<span class="text-error text-label-sm font-bold uppercase tracking-wider">Slow</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant opacity-40 md:opacity-100" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Optional Empty State (Suppressed by presence of items, but structure included for reference) -->
+<div class="hidden flex-col items-center justify-center py-stack-xl text-center">
+<div class="w-64 h-64 mb-stack-lg relative">
+<div class="absolute inset-0 bg-primary/10 blur-[60px] rounded-full"></div>
+<img alt="" class="w-full h-full object-contain mix-blend-screen opacity-80" data-alt="A futuristic, high-tech isometric illustration of an empty data hub. Translucent holographic wires and glowing nodes float in a dark, infinite void, lit by neon cyan and deep purple pulses. The mood is silent and expectant, with a clean aerospace HUD aesthetic that feels advanced yet waiting for input." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBML6CCshny5cAAL-gp-mIXIdptfkUAvtIFkl034wBGQmqVR9ZCBJIMBo7W5x4FR6S83DTAwl2W4NnGR0YNkrbHFjgFz66iE9RAe4SNSskVja3cFczDmcRjZMfgyGvcWc_s9_j95rmhgVBMgVJ4mK0bVTGHfy9FV0OKFf3os-h4h2ZFbiWcshShqR3jWVr6YnNgJ1NF0EFXF5IGZLQZOQ7MWasWEdvao12gQsPO8P8mTZBxiCDWhWYPFXFqZ911UQU0Y0wiaTJ3t2EU"/>
+</div>
+<h3 class="text-headline-md font-headline-md mb-stack-xs">No scans yet</h3>
+<p class="text-on-surface-variant max-w-xs mx-auto">Your speed analysis history will appear here once you run your first diagnostic test.</p>
+<button class="mt-stack-lg px-stack-xl py-stack-md bg-primary text-on-primary rounded-full font-bold hover:scale-105 transition-transform glow-indicator">
+                Start First Scan
+            </button>
+</div>
+</main>
+<!-- Bottom Navigation Shell -->
+<nav class="bg-surface/90 backdrop-blur-2xl dark:bg-surface/90 docked full-width bottom-0 fixed z-50 border-t border-white/10 dark:border-white/5 shadow-[0_-4px_20px_rgba(0,0,0,0.5)] flex justify-around items-center h-20 w-full px-4 pb-safe">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant/60 hover:text-primary-fixed transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-label-sm font-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim drop-shadow-[0_0_8px_rgba(207,188,255,0.6)] scale-90 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="history" style="font-variation-settings: 'FILL' 1;">history</span>
+<span class="text-label-sm font-label-sm">History</span>
+</a>
+<div class="flex flex-col items-center justify-center mb-10">
+<button class="w-14 h-14 rounded-full neon-blue-gradient shadow-[0_0_20px_rgba(103,80,164,0.5)] flex items-center justify-center text-on-primary active:scale-95 transition-transform">
+<span class="material-symbols-outlined !text-[32px]" data-icon="add">add</span>
+</button>
+</div>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant/60 hover:text-primary-fixed transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="compare_arrows">compare_arrows</span>
+<span class="text-label-sm font-label-sm">Compare</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant/60 hover:text-primary-fixed transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="info">info</span>
+<span class="text-label-sm font-label-sm">About</span>
+</a>
+</nav>
+<!-- FAB Suppression Logic: Not rendered on History page as per mandate -->
+</body></html>
